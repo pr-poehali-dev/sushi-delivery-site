@@ -1,24 +1,8 @@
-
 import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
-  prefix: "",
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -26,6 +10,11 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "sushi-purple": "#9b87f5",
+        "sushi-pink": "#FFDEE2",
+        "sushi-beige": "#FEF8E8", // Нежный желто-бежевый цвет для фона
+        "sushi-yellow": "#FEF7CD",
+        "sushi-dark": "#1A1F2C",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -64,23 +53,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Кастомные цвета для суши-сайта
-        "sushi-purple": "#9b87f5",
-        "sushi-pink": "#FFDEE2",
-        "sushi-beige": "#FDE1D3",
-        "sushi-yellow": "#FEF7CD",
-        "sushi-dark": "#222222",
-        "sushi-light": "#f5f5f5",
+      },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        montserrat: ["Montserrat", "sans-serif"],
-        roboto: ["Roboto", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -92,26 +73,26 @@ export default {
           to: { height: "0" },
         },
         fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         slideFromRight: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0)' },
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
         },
         slideFromLeft: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        fadeIn: 'fadeIn 0.5s ease-in-out',
-        slideFromRight: 'slideFromRight 0.5s ease-in-out',
-        slideFromLeft: 'slideFromLeft 0.5s ease-in-out',
+        fadeIn: "fadeIn 0.5s ease-in-out",
+        slideFromRight: "slideFromRight 0.5s ease-in-out",
+        slideFromLeft: "slideFromLeft 0.5s ease-in-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
-} satisfies Config
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+} as Config;
